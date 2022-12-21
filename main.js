@@ -56,17 +56,14 @@ function desencrypt() {
 }
 
 function copyText() {
-  btnCopy.addEventListener('click', (e) => {
-    let text = messageParagraph.textContent
-    navigator.clipboard.writeText(text)
-      .then(() => {
-        console.log('Copiado')
-      })
-  })
+  let text = messageParagraph.textContent
+  navigator.clipboard.writeText(text)
+    .then(() => {
+      console.log('Copiado')
+    })
 }
 
 inputMessage.addEventListener('keyup', (e) => {
-  console.log(e.target.value)
   if (e.target.value === '') {
     mainInfo.classList.remove('hidden')
     mainEncrypted.classList.add('hidden')
