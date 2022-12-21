@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <main class="main">
+    <header class="main__header">
+      <img class="main__logo" src="./img/logo_alura.svg" alt="logo d e alura">
+    </header>
+    <section class="main__message">
+      <textarea name="message" id="input-message" cols="30" rows="7" placeholder="Ingrese el texto aquí"></textarea>
+      <div>
+        <p class="main__paragraph">
+          <span>
+            <img src="./img/icon_info.svg" alt="icono de información">
+          </span>
+          Solo letras minúsculas y sin acentos
+        </p>
+        <div class="main__button">
+          <input class="button__primary" type="button" value="Encriptar" id="btn-encriptar">
+          <input class="button__outline" type="button" value="Desencriptar" id="btn-desencriptar">
+        </div>
+      </div>
+    </section>
+    <section class="main__result">
+      <div class="main__info">
+        <img class="main__svg" src="./img/logo_person.svg" alt="SVG">
+        <h2 class="main__h2">Ningún mensaje fue encontrado</h2>
+        <p class="main__p">Ingresa el texto que desees encriptar o desencriptar.</p>
+      </div>
+      <div class="main__encrypted hidden">
+        <p class="message__paragraph"></p>
+        <input class="button__outline" type="button" value="Copiar" id="btn-copy">
+      </div>
+    </section>
+  </main>
+  <script src="main.js"></script>
+</body>
+
+</html>
