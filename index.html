@@ -5,42 +5,54 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="reset.css">
   <link rel="stylesheet" href="style.css">
-  <title>Document</title>
+  <title>JS Encrypt</title>
 </head>
 
 <body>
   <main class="main">
     <header class="main__header">
-      <img class="main__logo" src="./img/logo_alura.svg" alt="logo d e alura">
+      <h1>
+        <img class="main__logo" src="./img/logo_alura.svg" alt="logo de alura">
+      </h1>
     </header>
-    <section class="main__message">
-      <textarea name="message" id="input-message" cols="30" rows="7" placeholder="Ingrese el texto aquí"></textarea>
-      <div>
+    <div class="main__message">
+      <textarea class="main__textarea" name="message" id="input-message" placeholder="Ingrese el texto aquí"></textarea>
+      <div class="main__actions">
         <p class="main__paragraph">
-          <span>
-            <img src="./img/icon_info.svg" alt="icono de información">
+          <span class="main__span">
+            <img class="main__icon" src="./img/icon_info.svg" alt="icono de información">
           </span>
           Solo letras minúsculas y sin acentos
         </p>
-        <div class="main__button">
-          <input class="button__primary" type="button" value="Encriptar" id="btn-encriptar">
-          <input class="button__outline" type="button" value="Desencriptar" id="btn-desencriptar">
+        <div class="main__btn">
+          <input class="main__btn--default main__btn--primary" type="button" value="Encriptar" id="btn-encrypt">
+          <input class="main__btn--default main__btn--outline" type="button" value="Desencriptar" id="btn-decrypt">
+          <input class="main__btn--default main__btn--outline" type="button" value="Pegar" id="btn-paste">
         </div>
       </div>
-    </section>
-    <section class="main__result">
-      <div class="main__info">
+    </div>
+    <div class="main__result">
+      <section class="main__info">
         <img class="main__svg" src="./img/logo_person.svg" alt="SVG">
         <h2 class="main__h2">Ningún mensaje fue encontrado</h2>
-        <p class="main__p">Ingresa el texto que desees encriptar o desencriptar.</p>
-      </div>
+        <p class="main__p">Ingresa el texto que desees encriptar o desencriptar.
+      </section>
       <div class="main__encrypted hidden">
-        <p class="message__paragraph"></p>
-        <input class="button__outline" type="button" value="Copiar" id="btn-copy">
+        <p class="main__message--encrypted"></p>
+        <div class="main__action--copy">
+          <div class="main__tooltip hidden" role="tooltip">Texto copiado</div>
+          <input class="main__btn--default main__btn--outline" type="button" value="Copiar" id="btn-copy">
+        </div>
       </div>
-    </section>
+    </div>
   </main>
+  <footer>
+    <p>
+      <strong>Hecho con &#10084;&#65039; por <a href="https://github.com/Amaya-14/JS-Encrypt">Daniel Amaya</a></strong>
+    </p>
+  </footer>
   <script src="main.js"></script>
 </body>
 

@@ -1,19 +1,39 @@
-const btnEncriptar = document.querySelector('#btn-encriptar')
-const btnDesencriptar = document.querySelector('#btn-desencriptar')
-const btnCopy = document.querySelector('#btn-copy')
-const inputMessage = document.querySelector('#input-message')
-const mainInfo = document.querySelector('.main__info')
-const mainEncrypted = document.querySelector('.main__encrypted')
-const messageParagraph = document.querySelector('.message__paragraph')
-const letterToEncript = ['ai', 'enter', 'imes', 'ober', 'ufat']
-const EncriptToLetter = ['a', 'e', 'i', 'o', 'u']
+const BTN_ENCRYPT = document.querySelector('#btn-encrypt')
+const BTN_DECRYPT = document.querySelector('#btn-decrypt')
+const BTN_COPY = document.querySelector('#btn-copy')
+const BTN_PASTE = document.querySelector('#btn-paste')
+const INPUT_MESSAGE = document.querySelector('#input-message')
+const MAIN_INFO = document.querySelector('.main__info')
+const MAIN_ENCRYPTED = document.querySelector('.main__encrypted')
+const MESSAGE_ENCRYPT = document.querySelector('.main__message--encrypted')
+const MAIN_TOOLTIP = document.querySelector('.main__tooltip')
 
-function encrypt() {
-  let str = inputMessage.value.toLowerCase()
+const letterToEncript = ['ai', 'enter', 'imes', 'ober', 'ufat']
+const LETTERS = ['a', 'e', 'i', 'o', 'u']
+const REGEX = /[A-Záéíóúàèìòù]/g
+
+const sUsrAg = navigator.userAgent;
+
+if (sUsrAg.indexOf('Firefox') > -1) {
+  BTN_PASTE.classList.add('hidden')
+}
+
+function validateMessage(str) {
+  return str.match(REGEX) === null ? true : false
+}
+
+BTN_ENCRYPT.addEventListener('click', (evt) => {
+  let str = INPUT_MESSAGE.value.toLowerCase()
 
   if (str === '') return alert('Debe de ingresar un mensaje')
-
+  if (!validateMessage(str)) return alert('Sin mayúsculas ni acentos')
   let newStr = ''
+
+  // str = str.replaceAll(LETTERS[1], letterToEncript[1])
+  //   .replaceAll(LETTERS[2], letterToEncript[2])
+  //   .replaceAll(LETTERS[0], letterToEncript[0])
+  //   .replaceAll(LETTERS[3], letterToEncript[3])
+  //   .replaceAll(LETTERS[4], letterToEncript[4])
 
   for (let letter of str) {
     switch (letter) {
@@ -36,40 +56,56 @@ function encrypt() {
         newStr += letter
     }
   }
-  console.log(newStr)
-  messageParagraph.textContent = newStr
-  mainInfo.classList.add('hidden')
-  mainEncrypted.classList.remove('hidden')
-}
 
-function desencrypt() {
-  let str = inputMessage.value.toLowerCase()
+  MESSAGE_ENCRYPT.textContent = newStr
+  MAIN_INFO.classList.add('hidden')
+  MAIN_ENCRYPTED.classList.remove('hidden')
+})
+
+BTN_DECRYPT.addEventListener('click', (evt) => {
+  let str = INPUT_MESSAGE.value.toLowerCase()
   if (str === '') return alert('Debe de ingresar un mensaje')
+  if (!validateMessage(str)) return alert('Sin mayúsculas ni acentos')
+
   for (let i = 0; i < 5; i++) {
-    str = str.replaceAll(letterToEncript[i], EncriptToLetter[i])
+    str = str.replaceAll(letterToEncript[i], LETTERS[i])
   }
 
-  console.log(str)
-  messageParagraph.textContent = str
-  mainInfo.classList.add('hidden')
-  mainEncrypted.classList.remove('hidden')
-}
+  MESSAGE_ENCRYPT.textContent = str
+  MAIN_INFO.classList.add('hidden')
+  MAIN_ENCRYPTED.classList.remove('hidden')
+})
 
-function copyText() {
-  let text = messageParagraph.textContent
-  navigator.clipboard.writeText(text)
-    .then(() => {
-      console.log('Copiado')
-    })
-}
-
-inputMessage.addEventListener('keyup', (e) => {
-  if (e.target.value === '') {
-    mainInfo.classList.remove('hidden')
-    mainEncrypted.classList.add('hidden')
+BTN_COPY.addEventListener('click', async (evt) => {
+  try {
+    let text = MESSAGE_ENCRYPT.textContent
+    await navigator.clipboard.writeText(text)
+    MAIN_TOOLTIP.classList.remove('hidden')
+    setTimeout(() => {
+      MAIN_TOOLTIP.classList.add('hidden')
+    }, 1000)
+  } catch (error) {
+    console.log(error)
+    alert(error)
   }
 })
 
-btnEncriptar.onclick = encrypt
-btnDesencriptar.onclick = desencrypt
-btnCopy.onclick = copyText
+BTN_PASTE.addEventListener('click', async (evt) => {
+  try {
+    let text = await navigator.clipboard.readText()
+    INPUT_MESSAGE.value = text
+  } catch (error) {
+    console.log(error)
+  }
+})
+
+INPUT_MESSAGE.addEventListener('keyup', (evt) => {
+  if (evt.target.value !== '') return
+
+  MAIN_INFO.classList.remove('hidden')
+  MAIN_ENCRYPTED.classList.add('hidden')
+})
+
+INPUT_MESSAGE.addEventListener('input', (evt) => {
+  INPUT_MESSAGE.value = evt.target.value.toLowerCase()
+})
