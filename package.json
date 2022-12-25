@@ -1,10 +1,10 @@
 {
   "name": "js-encrypt",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "JavaScript text encrypter",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch": "sass --watch assets/sass/style.scss:assets/css/style.css"
   },
   "repository": {
     "type": "git",
@@ -13,7 +13,8 @@
   "keywords": [
     "html5",
     "javascript",
-    "css"
+    "css",
+    "sass"
   ],
   "author": "Daniel Amaya",
   "license": "GPL-3.0",

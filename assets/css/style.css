@@ -1,4 +1,139 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Overpass:wght@400;700&display=swap');
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Overpass:wght@400;700&display=swap");
+/* Reseteamos los margin y paddings de todas las etiquetas */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  vertical-align: baseline;
+}
+
+/* Configuramos anclas suaves */
+html {
+  scroll-behavior: smooth;
+  font-size: 100%;
+}
+
+/* (Probándolo, no usar en producción) En el caso de añadir una  */
+/* p svg{
+  display: inline;
+  width: initial;
+} */
+/* Configuramos la tipografía para toda la web */
+body {
+  min-height: 100vh;
+  /* opcional */
+  line-height: 1.4em;
+  /* opcional */
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+}
+
+/* Desactivamos estilos por defecto de las principales etiquetas de texto */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a,
+strong,
+blockquote,
+i,
+b,
+u,
+em {
+  font-size: 1em;
+  font-weight: inherit;
+  font-style: inherit;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Reseteamos los enlaces para funcionar como cajas... */
+a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  font-size: inherit;
+}
+
+/* ... excepto los que se encuentran en párrafos */
+p a {
+  display: inline;
+}
+
+/* Quitamos los puntos de los <li> */
+li {
+  list-style-type: none;
+}
+
+/* Evitamos problemas con las imagenes */
+img,
+picture,
+video,
+iframe,
+figure {
+  max-width: 100%;
+  width: 100%;
+  display: block;
+  /* opcional */
+  -o-object-fit: cover;
+  object-fit: cover;
+  /* opcional */
+  -o-object-position: center center;
+  object-position: center center;
+}
+
+/* Nivelamos problemas de tipografías y colocación de formularios */
+form,
+input,
+textarea,
+select,
+button,
+label {
+  font-family: inherit;
+  font-size: inherit;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+  background-color: transparent;
+  color: inherit;
+  display: block;
+  /* opcional */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* Reseteamos las tablas */
+table,
+tr,
+td {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Evitamos problemas con los SVG */
+svg {
+  width: 100%;
+  display: block;
+  fill: currentColor;
+}
+
+/* Evitamos problemas con los pseudoelementos de quotes */
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
 
 :root {
   --white: #ffffff;
@@ -16,8 +151,7 @@
 }
 
 html {
-  font-family: 'Inter', sans-serif;
-  font-size: 16px;
+  font-family: "Inter", sans-serif;
 }
 
 body {
@@ -28,169 +162,140 @@ body {
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: 0 16px;
-  padding-top: 24px;
+  padding: 0 1rem;
+  padding-top: 1.5rem;
 }
-
 .main__header {
   width: 100%;
-  margin-bottom: 24px;
+  margin-bottom: 1.5rem;
 }
-
 .main__logo {
-  width: 32px;
+  width: 2rem;
 }
-
 .main__message {
   width: 100%;
   display: flex;
   flex-direction: column;
+  margin-bottom: 1rem;
 }
-
+.main__message--encrypted {
+  width: 100%;
+  margin-bottom: 2rem;
+  font-size: 1.4375rem;
+  line-height: 150%;
+  color: var(--gray-400);
+  overflow-wrap: anywhere;
+  overflow-y: scroll;
+}
 .main__textarea {
   width: 100%;
-  height: 380px;
-  /* font-size: 32px; */
+  height: 23.75rem;
+  /* font-size: mixinsfunc.pixelToRem(32); */
   font-size: clamp(1.5rem, 2.5vw, 2rem);
   color: var(--dark-blue-300);
   resize: none;
+  line-height: 150%;
 }
-
-.main__textarea::placeholder {
-  color: inherit;
-}
-
 .main__textarea:focus {
   outline: none;
 }
-
+.main__textarea::placeholder {
+  color: inherit;
+}
 .main__actions {
   width: 100%;
-  margin-bottom: 32px;
 }
-
 .main__paragraph {
   display: flex;
   align-items: center;
-  font-size: 12px;
+  font-size: 0.75rem;
   color: var(--gray-400);
   margin: 1rem 0;
 }
-
 .main__span {
-  margin-right: 8px;
+  margin-right: 0.5rem;
 }
-
 .main__icon {
-  width: 16px;
-  height: 16px;
+  width: 1rem;
+  height: 1rem;
 }
-
 .main__btn {
   display: flex;
   flex-direction: column;
   width: 100%;
-  gap: 24px;
+  gap: 1.5rem;
 }
-
 .main__btn--default {
   width: 100%;
-  height: 67px;
-  padding: 24px;
-  border-radius: 24px;
+  height: 4.1875rem;
+  padding: 1.5rem;
+  border-radius: 1.5rem;
   cursor: pointer;
 }
-
 .main__btn--default:active {
   transform: scale(90%);
 }
-
 .main__btn--primary {
   background-color: var(--dark-blue-300);
   color: var(--white);
 }
-
 .main__btn--outline {
-  border: 1px solid var(--dark-blue-300);
+  border: 0.0625rem solid var(--dark-blue-300);
   background-color: var(--light-gray);
   color: var(--dark-blue-300);
 }
-
 .main__result {
   width: 100%;
-  padding: 32px;
-  border-radius: 32px;
+  padding: 2rem;
+  border-radius: 2rem;
   background-color: var(--white);
-  box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
+  box-shadow: 0px 1.5rem 2rem -0.5rem rgba(0, 0, 0, 0.08);
 }
-
 .main__info {
   width: 100%;
   height: 100%;
   text-align: center;
 }
-
 .main__svg {
   display: none;
-  margin-bottom: 32px;
+  margin-bottom: 2rem;
 }
-
 .main__h2 {
-  font-size: 24px;
-  margin-bottom: 16px;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
   font-weight: 700;
+  line-height: 120%;
 }
-
 .main__p {
-  padding: 0 30px;
+  padding: 0 1.875rem;
   font-size: 1rem;
   color: var(--gray-400);
+  line-height: 150%;
 }
-
 .main__encrypted {
   width: 100%;
   height: 100%;
 }
-
-.main__message--encrypted {
-  width: 100%;
-  margin-bottom: 32px;
-
-  font-size: 23px;
-  line-height: 150%;
-  color: var(--gray-400);
-
-  overflow-wrap: anywhere;
-  overflow-y: scroll;
-}
-
 .main__action--copy {
   width: 100%;
   position: relative;
 }
-
 .main__tooltip {
   position: absolute;
   z-index: 1;
   pointer-events: none;
   user-select: none;
-
   background-color: var(--dark-blue-300);
   color: var(--white);
-  box-shadow: 0 0 10px #0000;
-  padding: .5rem 1rem;
-  font-size: .8rem;
-  border-radius: 8px;
+  box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0);
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  border-radius: 0.5rem;
   top: -60%;
   left: 25%;
-
   opacity: 1;
-  transition: opacity .3s ease;
+  transition: opacity 0.3s ease;
 }
-
-/* .main__action--copy:hover .main__tooltip {
-  opacity: 1;
-} */
 
 footer {
   width: 100%;
@@ -203,84 +308,69 @@ footer {
 strong {
   font-weight: bold;
 }
-
-strong>a {
+strong > a {
   color: var(--dark-blue-300);
 }
 
 @media screen and (min-width: 660px) {
-
   .main__btn {
     flex-direction: row;
     justify-content: center;
   }
-
   .main__btn--default {
-    /* width: 200px; */
-    min-width: 200px;
+    /* width: mixinsfunc.pixelToRem(200); */
+    min-width: 12.5rem;
   }
-
 }
-
 @media screen and (min-width: 1024px) {
   .main {
     flex-direction: row;
     height: 90vh;
   }
-
   .main__header {
     width: 16%;
     margin-bottom: 0;
   }
-
   .main__logo {
     margin: 0 auto;
   }
-
   .main__message {
     justify-content: flex-end;
-    margin-right: 40px;
+    margin-right: 2.5rem;
   }
-
   .main__textarea {
     height: 100%;
-    margin-top: 40px;
+    margin-top: 2.5rem;
   }
-
   .main__btn--default {
-    max-width: 300px;
+    max-width: 18.75rem;
   }
-
-  .main__action--copy>.main__btn--default {
-    max-width: 100%;
-  }
-
   .main__result {
-    width: 500px;
+    width: 31.25rem;
     margin: 0;
   }
-
   .main__info {
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
-
   .main__svg {
     display: block;
   }
-
   .main__encrypted {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
   }
-
   .main__message--encrypted {
-    margin-bottom: 45px;
+    margin-bottom: 2.8125rem;
+  }
+  .main__action--copy > .main__btn--default {
+    max-width: 100%;
   }
 }
-
 .hidden {
   display: none;
 }
+
+/*# sourceMappingURL=style.css.map */
