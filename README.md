@@ -1,6 +1,6 @@
 # 🔐 JS-Encrypt
 
-[![JS-Encrypt](https://user-images.githubusercontent.com/49620375/209453795-51fb22a0-f2c0-4c82-93f6-20d0bee2e099.png)](https://amaya-14.github.io/JS-Encrypt/)
+[![JS-Encrypt](https://user-images.githubusercontent.com/49620375/209454571-eaf0601b-aabd-4aa9-aacf-d436affdf973.jpeg)](https://amaya-14.github.io/JS-Encrypt/)
 
 <div align="center">
     <img src="https://img.shields.io/badge/-JavaScript-2f3237?logo=Javascript&logoColor=F7DF1E"/>
