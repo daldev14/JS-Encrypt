@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const LETTERS = ['a', 'e', 'i', 'o', 'u']
   const REGEX = /[A-Záéíóúàèìòù]/g
 
-  const sUsrAg = navigator.userAgent;
+  const sUsrAg = navigator.userAgent
 
   if (sUsrAg.indexOf('Firefox') > -1) {
     BTN_PASTE.classList.add('hidden')
@@ -23,12 +23,12 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('.emoji-heart').style.fontFamily = 'Segoe UI Symbol'
   }
 
-  function validateMessage(str) {
-    return str.match(REGEX) === null ? true : false
+  function validateMessage (str) {
+    return str.match(REGEX) === null
   }
 
   BTN_ENCRYPT.addEventListener('click', (evt) => {
-    let str = INPUT_MESSAGE.value.toLowerCase()
+    const str = INPUT_MESSAGE.value.toLowerCase()
 
     if (str === '') return alert('Debe de ingresar un mensaje')
     if (!validateMessage(str)) return alert('Sin mayúsculas ni acentos')
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //   .replaceAll(LETTERS[3], letterToEncript[3])
     //   .replaceAll(LETTERS[4], letterToEncript[4])
 
-    for (let letter of str) {
+    for (const letter of str) {
       switch (letter) {
         case 'a':
           newStr += letterToEncript[0]
@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   BTN_COPY.addEventListener('click', async (evt) => {
     try {
-      let text = MESSAGE_ENCRYPT.textContent
+      const text = MESSAGE_ENCRYPT.textContent
       await navigator.clipboard.writeText(text)
       MAIN_TOOLTIP.classList.remove('hidden')
       setTimeout(() => {
@@ -91,13 +91,12 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 1000)
     } catch (error) {
       console.log(error)
-      alert(error)
     }
   })
 
   BTN_PASTE.addEventListener('click', async (evt) => {
     try {
-      let text = await navigator.clipboard.readText()
+      const text = await navigator.clipboard.readText()
       INPUT_MESSAGE.value = text
     } catch (error) {
       console.log(error)
