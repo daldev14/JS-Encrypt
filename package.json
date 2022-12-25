@@ -1,0 +1,24 @@
+{
+  "name": "js-encrypt",
+  "version": "1.0.0",
+  "description": "JavaScript text encrypter",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Amaya-14/JS-Encrypt.git"
+  },
+  "keywords": [
+    "html5",
+    "javascript",
+    "css"
+  ],
+  "author": "Daniel Amaya",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/Amaya-14/JS-Encrypt/issues"
+  },
+  "homepage": "https://github.com/Amaya-14/JS-Encrypt#readme"
+}
