@@ -1,6 +1,10 @@
 # 🔐 JS-Encrypt
 
-[![JS-Encrypt](https://user-images.githubusercontent.com/49620375/209454571-eaf0601b-aabd-4aa9-aacf-d436affdf973.jpeg)](https://daldev14.github.io/JS-Encrypt/)
+<div align="center">
+  <a href="https://daldev14.github.io/JS-Encrypt/">
+    <img src="https://user-images.githubusercontent.com/49620375/227819111-3c914151-a4bd-434b-a80c-7d80e2894920.png" />
+  </a>
+</div>
 
 <div align="center">
     <img src="https://img.shields.io/badge/-JavaScript-2f3237?logo=Javascript&logoColor=F7DF1E"/>
